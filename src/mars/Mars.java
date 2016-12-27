@@ -26,21 +26,20 @@ public class Mars implements IMars {
 	public String move(String instructions) throws WebApplicationException {
 		for (int i = 0; i < instructions.length(); i++){
 		    char c = instructions.charAt(i);   
-//		    try {
-				switch (c) {
-					case 'M':
-						move();
-						break;
-					case 'L':
-						left();
-						break;
-					case 'R':
-						right();
-						break;
-					default:
-						System.out.println("Error");
-						throw new WebApplicationException(Response.Status.BAD_REQUEST);						
-				}
+		    switch (c) {
+				case 'M':
+					move();
+					break;
+				case 'L':
+					left();
+					break;
+				case 'R':
+					right();
+					break;
+				default:
+					System.out.println("Error");
+					throw new WebApplicationException(Response.Status.BAD_REQUEST);						
+			}
 		}
 		return "(" + xPosition + ", " + yPosition + ", " + direction + ")\n";
 	}
